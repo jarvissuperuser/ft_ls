@@ -10,4 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_LS_H
+# define FT_LS_H
+typedef struct	s_n
+{
+	int count;
+	int decision;
+	int main;
+}		t_n;
 
+char	*getlist();
+int	cs(char c);
+int	cd(char c);
+#endif

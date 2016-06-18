@@ -6,19 +6,13 @@
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 13:21:51 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/18 08:21:49 by tmugadza         ###   ########.fr       */
+/*   Updated: 2016/06/18 14:49:36 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <dirent.h>
 #include <unistd.h>
-
-typedef struct	s_n
-{
-	int count;
-	int decision;
-	int main;
-} t_n;
+#include "ft_ls.h"
 
 void	f_lo(char *s)
 {
@@ -32,17 +26,17 @@ void	f_lo(char *s)
 }
 
 
-void	ra(DIR *dir)
+char	*ra(DIR *dir)
 {
 	struct dirent	*entry;
 
 	if ((entry = readdir(dir)) != NULL)
 	{
-		f_lo(entry->d_name);
-		ra(dir);
+		return(entry->d_name);
 	}
 }
 
+void	rd(DIR *dir, t_n f)
 
 int		main(int ac, char **av)
 {

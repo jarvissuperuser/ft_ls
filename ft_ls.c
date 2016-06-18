@@ -6,13 +6,27 @@
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 13:14:15 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/11 14:09:34 by tmugadza         ###   ########.fr       */
+/*   Updated: 2016/06/18 15:04:10 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char * getlist()
+char	*getlist()
 {
-	
+	return "";
+}
+
+int		cs(char c)
+{
+	if (c == ' ')
+		return (1);
+	return (0);
+}
+
+int		cd(char c)
+{
+	if (c == '-')
+		return (1);
+	return (0);
 }
