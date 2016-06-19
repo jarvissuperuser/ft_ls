@@ -6,15 +6,15 @@
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 13:14:15 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/18 15:04:10 by tmugadza         ###   ########.fr       */
+/*   Updated: 2016/06/19 16:53:19 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*getlist()
+char	*getlist(void)
 {
-	return "";
+	return ("");
 }
 
 int		cs(char c)

@@ -6,7 +6,7 @@
 #    By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/11 13:22:48 by tmugadza          #+#    #+#              #
-#    Updated: 2016/06/18 15:02:29 by tmugadza         ###   ########.fr        #
+#    Updated: 2016/06/19 17:00:26 by tmugadza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,3 +35,5 @@ clean :
 
 fclean : 
 	/bin/rm ft_ls
+
+re : clean fclean all

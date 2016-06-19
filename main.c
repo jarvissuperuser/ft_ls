@@ -6,25 +6,56 @@
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 13:21:51 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/18 14:49:36 by tmugadza         ###   ########.fr       */
+/*   Updated: 2016/06/19 16:50:46 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <dirent.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 #include "ft_ls.h"
 
-void	f_lo(char *s)
+int		f_lo(char *s)
 {
 	int	a;
 
 	a = 0;
 	while (s[a])
 		a++;
-	write(1, s, a);
-	write(1, "\n", 1);
+	if (a > 0)
+	{
+		write(1, s, a);
+		write(1, "\n", 1);
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
 
+int		f_np(char *s)
+{
+	int	a;
+
+	a = 0;
+	while (s[a])
+		a++;
+	if (a > 0)
+	{
+		if (s[0] != '.')
+		{
+			write(1, s, a);
+			write(1, "\n", 1);
+		}
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
 
 char	*ra(DIR *dir)
 {
@@ -32,18 +63,46 @@ char	*ra(DIR *dir)
 
 	if ((entry = readdir(dir)) != NULL)
 	{
-		return(entry->d_name);
+		return (entry->d_name);
+	}
+	else
+	{
+		exit(0);
 	}
 }
 
-void	rd(DIR *dir, t_n f)
+void	rd(DIR *d, t_n f)
+{
+	char	*s;
+
+	if ((f.d & 2))
+	{
+		if (f_lo(ra(d)))
+			rd(d, f);
+	}
+	if ((f.d & 32) == 0)
+	{
+		if (f_np(ra(d)))
+			rd(d, f);
+	}
+}
 
 int		main(int ac, char **av)
 {
-	DIR				*d;
+	DIR	*d;
+	t_n	t;
 
 	d = opendir(".");
-	ra(d);
+	t.d = 0;
+	if (ac >= 2)
+	{
+		if (av[1][0] == '-')
+		{
+			if (av[1][1] == 'a')
+				t.d = 2;
+		}
+	}
+	rd(d, t);
 	closedir(d);
 	return (0);
 }
