@@ -6,7 +6,7 @@
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 13:20:22 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/19 17:02:26 by tmugadza         ###   ########.fr       */
+/*   Updated: 2016/06/19 17:04:02 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ typedef struct	s_n
 	int	m;
 }				t_n;
 char			*getlist();
-int		y	cs(char c);
+int				cs(char c);
 int				cd(char c);
 #endif
