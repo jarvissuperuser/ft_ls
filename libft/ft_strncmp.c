@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/11 13:20:22 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/19 17:04:02 by tmugadza         ###   ########.fr       */
+/*   Created: 2016/05/09 13:12:27 by tmugadza          #+#    #+#             */
+/*   Updated: 2016/05/10 16:13:13 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
-# include <libft.h>
-typedef struct	s_n
-{
-	int			c;
-	int			d;
-	int			m;
-}				t_n;
+#include "libft.h"
 
-typedef struct	s_dir
+int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
-	char		*c;
-	char		*buff;
-	void		*next;
-}				t_dir;
+	unsigned int index;
 
-char		*getlist();
-int			cs(char c);
-int			cd(char c);
-int			flag_translate(char *s,t_n t);
-#endif
+	index = 0;
+	while (*s1 == *s2 && index <= n)
+	{
+		if (*s1 == '\0')
+			return (0);
+		s1++;
+		s2++;
+		index++;
+	}
+	if (*(unsigned char *)s1 < *(unsigned char *)s2)
+	{
+		return (-1);
+	}
+	else
+	{
+		return (+1);
+	}
+}

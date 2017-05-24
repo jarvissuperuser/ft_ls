@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/11 13:20:22 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/19 17:04:02 by tmugadza         ###   ########.fr       */
+/*   Created: 2016/11/25 17:18:18 by tmugadza          #+#    #+#             */
+/*   Updated: 2016/11/25 17:18:22 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
-# include <libft.h>
-typedef struct	s_n
-{
-	int			c;
-	int			d;
-	int			m;
-}				t_n;
+#include "libft.h"
+#include <stdlib.h>
 
-typedef struct	s_dir
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char		*c;
-	char		*buff;
-	void		*next;
-}				t_dir;
+	char			*s;
+	unsigned int	c;
+	unsigned int	z;
 
-char		*getlist();
-int			cs(char c);
-int			cd(char c);
-int			flag_translate(char *s,t_n t);
-#endif
+	c = 0;
+	z = 0;
+	if ((s = (char *)malloc(ft_strlen(s1) + ft_strlen(s2))))
+	{
+		while (s1[c])
+		{
+			s[c] = (char)s1[c];
+			c = c + 1;
+		}
+		while (s2[z])
+		{
+			s[c + z] = (char)s2[z];
+			z = z + 1;
+		}
+		s[c + z] = '\0';
+		return (s);
+	}
+	return (NULL);
+}

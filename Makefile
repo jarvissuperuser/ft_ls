@@ -22,18 +22,21 @@ SRC = ft_ls.c\
 OB = main.o\
 	 ft_ls.o
 
+L = libft/
+
 all : $(NM) 
 
 $(NM) : $(OB) 
 
 fin: first
-	$(CC) $(F) $(NM) $(OB) 
+	$(CC) $(F) $(NM) $(OB) -I ./$(L) -L -lft
 first:
-	$(CC) -c $(SRC)
+	make -C $(L)
+	$(CC) -c $(SRC) -I ./$(L) -L -lft
 clean : 
 	/bin/rm $(OB)
 
 fclean : 
-	/bin/rm ft_ls
+	/bin/rm $(NM) $(OB)
 
 re : clean fclean all

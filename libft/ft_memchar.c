@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/11 13:20:22 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/19 17:04:02 by tmugadza         ###   ########.fr       */
+/*   Created: 2016/05/11 15:59:38 by tmugadza          #+#    #+#             */
+/*   Updated: 2016/11/25 17:41:00 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
-# include <libft.h>
-typedef struct	s_n
-{
-	int			c;
-	int			d;
-	int			m;
-}				t_n;
+#include "libft.h"
+#include <stdlib.h>
 
-typedef struct	s_dir
+void	*ft_memchar(const void *s, const char c, size_t n)
 {
-	char		*c;
-	char		*buff;
-	void		*next;
-}				t_dir;
+	const char	*a;
+	char		*st;
+	void		*r;
 
-char		*getlist();
-int			cs(char c);
-int			cd(char c);
-int			flag_translate(char *s,t_n t);
-#endif
+	a = (char *)(const char *)s;
+	r = (char *)a;
+	if (n)
+	{
+		while (n--)
+		{
+			if (*a++ == c)
+				return ((char *)(const char *)a);
+		}
+		r = malloc(1);
+		st = r;
+		*st = '\0';
+		return ((void *)(const char *)st);
+	}
+	else
+		return (r);
+}

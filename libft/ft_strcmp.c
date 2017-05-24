@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/11 13:20:22 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/19 17:04:02 by tmugadza         ###   ########.fr       */
+/*   Created: 2016/11/25 17:10:16 by tmugadza          #+#    #+#             */
+/*   Updated: 2016/11/25 17:11:56 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
-# include <libft.h>
-typedef struct	s_n
-{
-	int			c;
-	int			d;
-	int			m;
-}				t_n;
+#include "libft.h"
+#include <stdlib.h>
 
-typedef struct	s_dir
+int	ft_strcmp(const void *s1, const void *s2, size_t n)
 {
-	char		*c;
-	char		*buff;
-	void		*next;
-}				t_dir;
+	size_t		i;
+	const char	*a1;
+	const char	*a2;
+	int			a;
 
-char		*getlist();
-int			cs(char c);
-int			cd(char c);
-int			flag_translate(char *s,t_n t);
-#endif
+	i = 0;
+	a1 = s1;
+	a2 = s2;
+	while (i < n)
+	{
+		if (*(a1 + i) == *(a2 + i))
+			i++;
+		else
+			break ;
+	}
+	a = i;
+	while (*(a1 + i))
+	{
+		if (!*(a2 + a))
+			i++;
+		else
+			break ;
+	}
+	return (i - n);
+}

@@ -26,7 +26,7 @@ int		f_lo(char *s)
 	if (a > 0)
 	{
 		write(1, s, a);
-		write(1, "\n", 1);
+		write(1, "\t\t", 1);
 		return (1);
 	}
 	else
@@ -47,7 +47,7 @@ int		f_np(char *s)
 		if (s[0] != '.')
 		{
 			write(1, s, a);
-			write(1, "\n", 1);
+			write(1, "\t\t", 1);
 		}
 		return (1);
 	}
@@ -87,22 +87,17 @@ void	rd(DIR *d, t_n f)
 	}
 }
 
-int		main(int ac, char **av)
-{
-	DIR	*d;
-	t_n	t;
+int		main(int ac, char **av) {
+	DIR *d;
+	t_n t;
 
 	d = opendir(".");
 	t.d = 0;
-	if (ac >= 2)
-	{
-		if (av[1][0] == '-')
-		{
-			if (av[1][1] == 'a')
-				t.d = 2;
-		}
+	if (ac >= 2) {
+		t.d = flag_translate(av[1],t);
 	}
 	rd(d, t);
 	closedir(d);
+	write(1, "\n", 1);
 	return (0);
 }

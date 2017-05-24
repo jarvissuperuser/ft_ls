@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmugadza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/11 13:20:22 by tmugadza          #+#    #+#             */
-/*   Updated: 2016/06/19 17:04:02 by tmugadza         ###   ########.fr       */
+/*   Created: 2016/05/09 11:42:13 by tmugadza          #+#    #+#             */
+/*   Updated: 2016/05/09 11:49:19 by tmugadza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
-# include <libft.h>
-typedef struct	s_n
-{
-	int			c;
-	int			d;
-	int			m;
-}				t_n;
+#include "libft.h"
 
-typedef struct	s_dir
+char	*ft_strcpy(char *dst, const char *src)
 {
-	char		*c;
-	char		*buff;
-	void		*next;
-}				t_dir;
+	int	index;
 
-char		*getlist();
-int			cs(char c);
-int			cd(char c);
-int			flag_translate(char *s,t_n t);
-#endif
+	index = 0;
+	while (src[index] != '\0')
+	{
+		dst[index] = src[index];
+		index++;
+	}
+	dst[index] = '\0';
+	return (dst);
+}

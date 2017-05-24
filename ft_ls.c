@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
+
+#include "ft_ls.h"
 
 char	*getlist(void)
 {
@@ -30,3 +32,27 @@ int		cd(char c)
 		return (1);
 	return (0);
 }
+
+int		flag_translate(char *s, t_n t)
+{
+	int a;
+	
+	a = 0;
+	if (s[0] == '-') 
+	{
+		while (a < ft_strlen(s))
+		{
+			if (s[1] == 'a')
+				t.d |= 2;
+			if (s[1] == 'R')
+				t.d |= 4;
+			if (s[1] == 'l')
+				t.d |= 8;
+			if (s[1] == 'r')
+				t.d |= 16;
+			if (s[1] == 't')
+				t.d |= 32;
+		}
+	}
+	return t.d;
+}       
